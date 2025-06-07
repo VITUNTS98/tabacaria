@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f3ec;
+  color: #2c2c2c;
+}
+
+header {
+  background-color: #3e2f1c;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.banner {
+  background-image: url('https://via.placeholder.com/1200x400?text=Mato+Seco+Tabacaria');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.produtos {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.produto {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 200px;
+  border-radius: 8px;
+}
+
+.produto img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.sobre, .contato {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #3e2f1c;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
