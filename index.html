@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mato Seco Tabacaria</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Apenas para deixar o painel bonitinho aqui */
+    #painelCadastro {
+      background: #fff;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    #painelCadastro input, #painelCadastro button {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    #painelCadastro button {
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    #painelCadastro button:hover {
+      background-color: #555;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">Mato Seco Tabacaria</div>
-    <input type="search" placeholder="Buscar produtos...">
+    <input type="search" placeholder="Buscar produtos..." />
     <div class="icons">
       <a href="#">Carrinho</a>
       <a href="#">Perfil</a>
@@ -26,31 +55,94 @@
   </nav>
 
   <section class="banner">
-    <img src="banner.jpg" alt="Promoção Especial">
+    <img src="banner.jpg" alt="Promoção Especial" />
   </section>
 
   <section class="produtos">
     <h2>Produtos em Destaque</h2>
-    <div class="produto">
-      <img src="produto1.jpg" alt="Seda Premium">
-      <p>Seda Premium</p>
-      <p>R$ 10,00</p>
+    <div id="listaProdutos">
+      <!-- Produtos aparecerão aqui -->
     </div>
-    <div class="produto">
-      <img src="produto2.jpg" alt="Piteira de Vidro">
-      <p>Piteira de Vidro</p>
-      <p>R$ 25,00</p>
-    </div>
-    <div class="produto">
-      <img src="produto3.jpg" alt="Essência de Menta">
-      <p>Essência de Menta</p>
-      <p>R$ 15,00</p>
-    </div>
+  </section>
+
+  <!-- Painel para adicionar produtos -->
+  <section id="painelCadastro">
+    <h2>Adicionar Produto</h2>
+    <input type="text" id="nomeProduto" placeholder="Nome do produto" />
+    <input type="text" id="urlImagem" placeholder="URL da imagem (ex: images/produto5.jpg)" />
+    <input type="text" id="precoProduto" placeholder="Preço (ex: R$ 20,00)" />
+    <button onclick="adicionarProduto()">Adicionar Produto</button>
   </section>
 
   <footer>
     <p>&copy; 2025 Mato Seco Tabacaria | Todos os direitos reservados</p>
     <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
   </footer>
+
+  <script>
+    // Array inicial com alguns produtos para exemplo
+    let produtos = [
+      {
+        nome: "Seda Premium",
+        imagem: "images/produto1.jpg",
+        preco: "R$ 10,00",
+      },
+      {
+        nome: "Piteira de Vidro",
+        imagem: "images/produto2.jpg",
+        preco: "R$ 25,00",
+      },
+      {
+        nome: "Essência de Menta",
+        imagem: "images/produto3.jpg",
+        preco: "R$ 15,00",
+      },
+    ];
+
+    // Função para exibir produtos na página
+    function mostrarProdutos() {
+      const lista = document.getElementById("listaProdutos");
+      lista.innerHTML = ""; // limpa a lista atual
+
+      produtos.forEach((produto) => {
+        const div = document.createElement("div");
+        div.className = "produto";
+
+        div.innerHTML = `
+          <img src="${produto.imagem}" alt="${produto.nome}" />
+          <p>${produto.nome}</p>
+          <p>${produto.preco}</p>
+        `;
+
+        lista.appendChild(div);
+      });
+    }
+
+    // Função chamada ao clicar no botão para adicionar produto
+    function adicionarProduto() {
+      const nome = document.getElementById("nomeProduto").value.trim();
+      const imagem = document.getElementById("urlImagem").value.trim();
+      const preco = document.getElementById("precoProduto").value.trim();
+
+      if (!nome || !imagem || !preco) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+      // Adiciona o produto ao array
+      produtos.push({ nome, imagem, preco });
+
+      // Atualiza a lista na página
+      mostrarProdutos();
+
+      // Limpa os campos
+      document.getElementById("nomeProduto").value = "";
+      document.getElementById("urlImagem").value = "";
+      document.getElementById("precoProduto").value = "";
+    }
+
+    // Mostrar os produtos iniciais ao carregar a página
+    window.onload = mostrarProdutos;
+  </script>
 </body>
 </html>
