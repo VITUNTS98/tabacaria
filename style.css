@@ -1,75 +1,103 @@
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  background-color: #f8f3ec;
-  color: #2c2c2c;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 header {
-  background-color: #3e2f1c;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header input[type="search"] {
+  padding: 5px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+header .icons a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px 0;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
   justify-content: center;
-  padding: 0;
+  list-style: none;
 }
 
 nav ul li {
-  margin: 0 15px;
+  margin: 0 20px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .banner {
-  background-image: url('https://via.placeholder.com/1200x400?text=Mato+Seco+Tabacaria');
-  background-size: cover;
-  color: #fff;
+  margin: 20px 0;
   text-align: center;
-  padding: 100px 20px;
+}
+
+.banner img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
 }
 
 .produtos {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.grid {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-around;
+  margin: 20px 0;
 }
 
 .produto {
   background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  width: 200px;
-  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .produto img {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
   border-radius: 4px;
 }
 
-.sobre, .contato {
-  padding: 40px 20px;
-  text-align: center;
-}
-
 footer {
-  background-color: #3e2f1c;
+  background-color: #333;
   color: #fff;
   text-align: center;
   padding: 20px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
 }
